@@ -21,6 +21,16 @@ export default {
     'bg-success/30',
     'border-warning',
     'bg-warning/30',
+    'bg-brand-orange',
+    'bg-brand-dark',
+    'bg-brand-snow',
+    'bg-brand-neutral',
+    'text-brand-orange',
+    'text-brand-dark',
+    'text-brand-text',
+    'border-brand-orange',
+    'hover:bg-brand-orange',
+    'hover:bg-brand-dark',
   ],
   theme: {
     container: {
@@ -113,6 +123,10 @@ export default {
         sans: ['var(--font-outfit)', 'system-ui', 'sans-serif'],
       },
       keyframes: {
+        'fade-in': {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
         fadeIn: {
           from: { opacity: 0 },
           to: { opacity: 1 },
@@ -164,6 +178,7 @@ export default {
         },
       },
       animation: {
+        'fade-in': 'fade-in 0.6s ease-out',
         in: 'in 0.2s ease-out',
         out: 'out 0.2s ease-out',
         fadeIn: 'fadeIn .3s ease-in-out',
