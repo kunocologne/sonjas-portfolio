@@ -51,6 +51,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       className={[outfit.variable, GeistMono.variable].filter(Boolean).join(' ')}
       lang="en"
       suppressHydrationWarning
+      data-theme="light"
     >
       <head>
         <InitTheme />
