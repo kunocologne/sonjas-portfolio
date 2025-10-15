@@ -1,6 +1,6 @@
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 
 export const dynamic = 'force-dynamic'
 
