@@ -5,7 +5,9 @@ import { HeroSectionBlock } from '@/blocks/HeroSection/Component'
 
 export default function HomePage() {
   return (
-    <>
+    <div className="min-h-screen bg-red-500">
+      <h1 className="text-4xl font-bold text-white p-8">TEST - Can you see this?</h1>
+      
       <HeroSectionBlock
         blockType="heroSection"
         headline="Ganzheitliche Physiotherapie & Sexualberatung"
@@ -39,7 +41,7 @@ export default function HomePage() {
           { label: 'Datenschutz', url: '/datenschutz' },
         ]}
       />
-    </>
+    </div>
   )
 }
 
