@@ -26,6 +26,13 @@
 @theme {
   --font-sans: var(--font-geist-sans), sans-serif;
   --font-mono: var(--font-geist-mono), sans-serif;
+  
+  /* Brand Colors */
+  --color-brand-orange: #FF7518;
+  --color-brand-dark: #C6451A;
+  --color-brand-snow: #FFFAFA;
+  --color-brand-neutral: #EDE3DC;
+  --color-brand-text: #2E2A26;
 }
 
 @utility container {
