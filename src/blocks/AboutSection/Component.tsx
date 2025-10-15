@@ -1,8 +1,8 @@
 'use client'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import type { AboutSectionBlock as AboutSectionProps } from '@/payload-types'
 import { cn } from '@/utilities/cn'
 import React from 'react'
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 export const AboutSectionBlock: React.FC<
   AboutSectionProps & {
@@ -35,20 +35,18 @@ export const AboutSectionBlock: React.FC<
         {/* Main content */}
         <div className="max-w-6xl mx-auto space-y-10">
           
-          {/* Description card with gradient text */}
+          {/* Description card with red gradient background */}
           <div className={cn(
-            'relative bg-white rounded-3xl p-8 md:p-12 lg:p-14 border-2 border-brand-neutral shadow-lg overflow-hidden transition-all duration-700 delay-200',
+            'relative bg-gradient-to-br from-brand-dark via-brand-text to-brand-dark rounded-3xl p-8 md:p-12 lg:p-14 overflow-hidden transition-all duration-700 delay-200',
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           )}>
-            {/* Decorative corner elements */}
-            <div className="absolute top-0 right-0 w-48 h-48 bg-brand-orange/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-brand-dark/5 rounded-full blur-3xl" />
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+            </div>
 
             <div className="relative text-center">
-              <p className="text-xl md:text-2xl lg:text-3xl leading-relaxed font-light">
-                <span className="bg-gradient-to-r from-brand-dark via-brand-orange to-brand-dark bg-clip-text text-transparent">
-                  {description}
-                </span>
+              <p className="text-xl md:text-2xl lg:text-3xl text-white leading-relaxed font-light">
+                {description}
               </p>
             </div>
           </div>

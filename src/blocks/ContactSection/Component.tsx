@@ -1,9 +1,9 @@
 'use client'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import type { ContactSectionBlock as ContactSectionProps } from '@/payload-types'
 import { cn } from '@/utilities/cn'
 import Link from 'next/link'
 import React from 'react'
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 export const ContactSectionBlock: React.FC<
   ContactSectionProps & {
