@@ -10,34 +10,24 @@ export const FooterSectionBlock: React.FC<
   }
 > = ({ className, copyrightText, links }) => {
   return (
-    <footer className={cn('relative bg-gradient-to-b from-brand-neutral to-brand-snow border-t border-brand-neutral', className)}>
-      <div className="container mx-auto px-6 lg:px-16 py-16">
-        {/* Top decorative element */}
-        <div className="flex justify-center mb-12">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
-            <div className="w-16 h-px bg-gradient-to-r from-transparent via-brand-orange to-transparent" />
-            <div className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" style={{ animationDelay: '0.5s' }} />
-            <div className="w-16 h-px bg-gradient-to-l from-transparent via-brand-orange to-transparent" />
-            <div className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" style={{ animationDelay: '1s' }} />
+    <footer className={cn('relative bg-brand-neutral border-t border-brand-neutral', className)}>
+      <div className="container mx-auto px-6 lg:px-16 py-12 md:py-16">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+          {/* Left - Copyright */}
+          <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
+            <div className="text-brand-text/70 text-sm">
+              {copyrightText}
+            </div>
           </div>
-        </div>
 
-        {/* Main footer content */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 max-w-4xl mx-auto">
-          {/* Copyright */}
-          <div className="text-brand-text/70 text-sm md:text-base">
-            {copyrightText}
-          </div>
-          
-          {/* Links */}
+          {/* Right - Links */}
           {links && links.length > 0 && (
-            <nav className="flex flex-wrap gap-8 justify-center">
+            <nav className="flex flex-wrap items-center gap-8">
               {links.map((link, index) => (
                 <Link
                   key={index}
                   href={link.url || '#'}
-                  className="group relative text-sm md:text-base text-brand-text hover:text-brand-orange font-medium transition-colors duration-300"
+                  className="group relative text-sm font-medium text-brand-text hover:text-brand-orange transition-colors duration-300"
                 >
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-orange group-hover:w-full transition-all duration-300" />
@@ -47,9 +37,11 @@ export const FooterSectionBlock: React.FC<
           )}
         </div>
 
-        {/* Bottom decorative element */}
-        <div className="flex justify-center mt-12">
-          <div className="w-32 h-px bg-gradient-to-r from-transparent via-brand-orange/30 to-transparent" />
+        {/* Bottom decorative line */}
+        <div className="mt-8 pt-8 border-t border-brand-text/10">
+          <p className="text-center text-sm text-brand-text/50">
+            Mit ❤️ gestaltet für Ihr Wohlbefinden
+          </p>
         </div>
       </div>
     </footer>
