@@ -1,25 +1,17 @@
 import type { Metadata } from 'next'
-
+import { notFound } from 'next/navigation'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
-import React, { Fragment } from 'react'
-import { ConfirmOrder } from '@/components/checkout/ConfirmOrder'
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
 
-export default async function ConfirmOrderPage({
+export default function ConfirmOrderPage({
   searchParams: searchParamsPromise,
 }: {
   searchParams: SearchParams
 }) {
-  const searchParams = await searchParamsPromise
-
-  const paymentIntent = searchParams.paymentId
-
-  return (
-    <div className="container min-h-[90vh] flex py-12">
-      <ConfirmOrder />
-    </div>
-  )
+  // Temporarily disabled to avoid Payload CMS dependency during build
+  // TODO: Re-enable when PAYLOAD_SECRET is configured in Vercel
+  notFound()
 }
 
 export const metadata: Metadata = {

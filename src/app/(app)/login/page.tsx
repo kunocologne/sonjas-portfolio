@@ -1,16 +1,13 @@
 import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 
-import { RenderParams } from '@/components/RenderParams'
-import Link from 'next/link'
-import React from 'react'
+export default function Login() {
+  // Temporarily disabled to avoid Payload CMS dependency during build
+  // TODO: Re-enable when PAYLOAD_SECRET is configured in Vercel
+  notFound()
+}
 
-import { headers as getHeaders } from 'next/headers'
-import configPromise from '@payload-config'
-import { getPayload } from 'payload'
-import { LoginForm } from '@/components/forms/LoginForm'
-import { redirect } from 'next/navigation'
-
-export default async function Login() {
+async function LoginDisabled() {
   const headers = await getHeaders()
   const payload = await getPayload({ config: configPromise })
   const { user } = await payload.auth({ headers })

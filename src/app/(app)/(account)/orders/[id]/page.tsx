@@ -1,19 +1,6 @@
-import type { Order } from '@/payload-types'
 import type { Metadata } from 'next'
-
-import { Price } from '@/components/Price'
-import { Button } from '@/components/ui/button'
-import { formatDateTime } from '@/utilities/formatDateTime'
-import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ChevronLeftIcon } from 'lucide-react'
-import { ProductItem } from '@/components/ProductItem'
-import { headers as getHeaders } from 'next/headers.js'
-import configPromise from '@payload-config'
-import { getPayload } from 'payload'
-import { OrderStatus } from '@/components/OrderStatus'
-import { AddressItem } from '@/components/addresses/AddressItem'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 
 export const dynamic = 'force-dynamic'
 
@@ -22,7 +9,13 @@ type PageProps = {
   searchParams: Promise<{ email?: string }>
 }
 
-export default async function Order({ params, searchParams }: PageProps) {
+export default function Order({ params, searchParams }: PageProps) {
+  // Temporarily disabled to avoid Payload CMS dependency during build
+  // TODO: Re-enable when PAYLOAD_SECRET is configured in Vercel
+  notFound()
+}
+
+async function OrderDisabled({ params, searchParams }: PageProps) {
   const headers = await getHeaders()
   const payload = await getPayload({ config: configPromise })
   const { user } = await payload.auth({ headers })

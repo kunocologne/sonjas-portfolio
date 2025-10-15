@@ -1,16 +1,11 @@
 import type { Metadata } from 'next'
-
+import { notFound } from 'next/navigation'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
-import React from 'react'
 
-import { ForgotPasswordForm } from '@/components/forms/ForgotPasswordForm'
-
-export default async function ForgotPasswordPage() {
-  return (
-    <div className="container py-16">
-      <ForgotPasswordForm />
-    </div>
-  )
+export default function ForgotPasswordPage() {
+  // Temporarily disabled to avoid Payload CMS dependency during build
+  // TODO: Re-enable when PAYLOAD_SECRET is configured in Vercel
+  notFound()
 }
 
 export const metadata: Metadata = {

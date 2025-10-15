@@ -1,15 +1,14 @@
 import type { Metadata } from 'next'
-
+import { notFound } from 'next/navigation'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
-import { headers as getHeaders } from 'next/headers.js'
-import configPromise from '@payload-config'
-import { Order } from '@/payload-types'
-import { getPayload } from 'payload'
-import { redirect } from 'next/navigation'
-import { AddressListing } from '@/components/addresses/AddressListing'
-import { CreateAddressModal } from '@/components/addresses/CreateAddressModal'
 
-export default async function AddressesPage() {
+export default function AddressesPage() {
+  // Temporarily disabled to avoid Payload CMS dependency during build
+  // TODO: Re-enable when PAYLOAD_SECRET is configured in Vercel
+  notFound()
+}
+
+async function AddressesPageDisabled() {
   const headers = await getHeaders()
   const payload = await getPayload({ config: configPromise })
   const { user } = await payload.auth({ headers })

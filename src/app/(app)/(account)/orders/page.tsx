@@ -1,15 +1,14 @@
-import type { Order } from '@/payload-types'
 import type { Metadata } from 'next'
-
+import { notFound } from 'next/navigation'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 
-import { OrderItem } from '@/components/OrderItem'
-import { headers as getHeaders } from 'next/headers'
-import configPromise from '@payload-config'
-import { getPayload } from 'payload'
-import { redirect } from 'next/navigation'
+export default function Orders() {
+  // Temporarily disabled to avoid Payload CMS dependency during build
+  // TODO: Re-enable when PAYLOAD_SECRET is configured in Vercel
+  notFound()
+}
 
-export default async function Orders() {
+async function OrdersDisabled() {
   const headers = await getHeaders()
   const payload = await getPayload({ config: configPromise })
   const { user } = await payload.auth({ headers })

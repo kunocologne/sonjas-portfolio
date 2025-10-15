@@ -1,17 +1,14 @@
 import type { Metadata } from 'next'
-
-import { Button } from '@/components/ui/button'
+import { notFound } from 'next/navigation'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
-import Link from 'next/link'
-import { headers as getHeaders } from 'next/headers.js'
-import configPromise from '@payload-config'
-import { AccountForm } from '@/components/forms/AccountForm'
-import { Order } from '@/payload-types'
-import { OrderItem } from '@/components/OrderItem'
-import { getPayload } from 'payload'
-import { redirect } from 'next/navigation'
 
-export default async function AccountPage() {
+export default function AccountPage() {
+  // Temporarily disabled to avoid Payload CMS dependency during build
+  // TODO: Re-enable when PAYLOAD_SECRET is configured in Vercel
+  notFound()
+}
+
+async function AccountPageDisabled() {
   const headers = await getHeaders()
   const payload = await getPayload({ config: configPromise })
   const { user } = await payload.auth({ headers })
