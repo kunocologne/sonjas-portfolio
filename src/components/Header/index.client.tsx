@@ -15,9 +15,9 @@ export function HeaderClient({ header: _header }: Props) {
       <nav className="container mx-auto px-6 lg:px-16 py-4">
         <div className="flex items-center justify-between">
           {/* Orange Wordmark - Left */}
-          <Link href="/" className="flex justify-center">
+          <Link href="/" className="flex justify-center" aria-label="Sonja Werner - Zur Startseite">
             <Image 
-              src="/orange_word.svg" 
+              src="/wordmark-corrected.svg" 
               alt="Sonja Werner" 
               width={200} 
               height={40}
@@ -28,9 +28,10 @@ export function HeaderClient({ header: _header }: Props) {
           {/* Contact Button - Right */}
           <Link
             href="mailto:kontakt.sonja.werner@outlook.de"
-            className="inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-brand-dark hover:bg-brand-orange text-white rounded-full font-semibold text-sm md:text-base transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105"
+            className="inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-brand-orange hover:bg-brand-dark text-white rounded-full font-semibold text-sm md:text-base transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:ring-offset-2"
+            aria-label="Kontakt aufnehmen - E-Mail: kontakt.sonja.werner@outlook.de"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
             <span className="hidden sm:inline">Kontakt</span>

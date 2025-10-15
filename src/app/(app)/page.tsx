@@ -25,8 +25,8 @@ export default function HomePage() {
 
       <ContactSectionBlock
         blockType="contactSection"
-        headline="Bereit für Veränderung?"
-        description="Ich freue mich auf deine Anfrage oder Terminvereinbarung."
+        headline="Lass uns gemeinsam starten"
+        description=""
         buttonText="Kontakt aufnehmen"
         buttonLink="mailto:kontakt.sonja.werner@outlook.de"
         email="kontakt.sonja.werner@outlook.de"
