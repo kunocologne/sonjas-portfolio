@@ -2,7 +2,6 @@
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import type { AboutSectionBlock as AboutSectionProps } from '@/payload-types'
 import { cn } from '@/utilities/cn'
-import Image from 'next/image'
 import React from 'react'
 
 export const AboutSectionBlock: React.FC<
@@ -107,17 +106,12 @@ export const AboutSectionBlock: React.FC<
                   </div>
 
                   {/* Image */}
-                  <div className={cn(
-                    "relative w-full h-32 rounded-xl overflow-hidden"
-                  )}
-                  >
-                    <Image
+                  <div className="w-full h-32 rounded-xl overflow-hidden">
+                    <img
                       src={item.image}
                       alt={item.title}
-                      fill
-                      className="object-cover"
+                      className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   </div>
 
                   {/* Description */}
