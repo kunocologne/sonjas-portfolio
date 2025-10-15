@@ -9,6 +9,7 @@ export default function PreviewPage() {
   return (
     <>
       <HeroSectionBlock
+        blockType="heroSection"
         headline="Ganzheitliche Physiotherapie & Sexualberatung"
         subline="Für mehr Bewusstsein, Heilung und Verbindung mit deinem Körper."
         buttonText="Termin vereinbaren"
@@ -16,6 +17,7 @@ export default function PreviewPage() {
       />
 
       <AboutSectionBlock
+        blockType="aboutSection"
         title="Über mich"
         description="Ich begleite Menschen auf ihrem Weg zu mehr Körperbewusstsein, Wohlbefinden und erfüllter Sexualität – mit Empathie, Erfahrung und einem ganzheitlichen Blick."
         image={null}
@@ -23,6 +25,7 @@ export default function PreviewPage() {
 
 
       <ContactSectionBlock
+        blockType="contactSection"
         headline="Bereit für Veränderung?"
         description="Ich freue mich auf deine Anfrage oder Terminvereinbarung."
         buttonText="Kontakt aufnehmen"
@@ -32,6 +35,7 @@ export default function PreviewPage() {
       />
 
       <FooterSectionBlock
+        blockType="footerSection"
         copyrightText="© 2025 Sonja Werner"
         links={[
           { label: 'Impressum', url: '/impressum' },
