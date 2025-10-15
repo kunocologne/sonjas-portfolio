@@ -1,6 +1,6 @@
+import { AboutSectionBlock } from '@/blocks/AboutSection/Component'
 import { ContactSectionBlock } from '@/blocks/ContactSection/Component'
 import { HeroSectionBlock } from '@/blocks/HeroSection/Component'
-import { AboutSectionBlock } from '@/blocks/AboutSection/Component'
 
 export default function HomePage() {
   return (

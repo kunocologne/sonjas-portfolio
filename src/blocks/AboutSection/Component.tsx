@@ -75,10 +75,7 @@ export const AboutSectionBlock: React.FC<
             ].map((item, i) => (
               <div
                 key={i}
-                className={cn(
-                  'group relative overflow-hidden rounded-2xl border border-brand-neutral/30 hover:border-brand-orange transition-all duration-300 hover:shadow-lg hover:-translate-y-1 min-h-[380px] bg-white/80 backdrop-blur-sm',
-                  isVisible ? 'opacity-100 translate-y-0 animate-fadeInUp' : 'opacity-0 translate-y-10'
-                )}
+                className="group relative overflow-hidden rounded-2xl border border-brand-neutral/30 hover:border-brand-orange transition-all duration-300 hover:shadow-lg hover:-translate-y-1 min-h-[380px] bg-white/80 backdrop-blur-sm"
                 style={{ transitionDelay: `${400 + i * 100}ms` }}
               >
                 {/* Subtle background */}
@@ -131,10 +128,7 @@ export const AboutSectionBlock: React.FC<
           </div>
 
           {/* Stats bar */}
-          <div className={cn(
-            'grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 bg-gradient-to-br from-brand-neutral to-brand-snow rounded-3xl p-6 sm:p-8 lg:p-10 border-2 border-brand-neutral shadow-lg transition-all duration-700 delay-700',
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          )}>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 bg-gradient-to-br from-brand-neutral to-brand-snow rounded-3xl p-6 sm:p-8 lg:p-10 border-2 border-brand-neutral shadow-lg">
             <div className="text-center space-y-1 sm:space-y-2">
               <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark">500+</div>
               <div className="text-xs sm:text-sm text-brand-text/60 font-medium">Klienten</div>
