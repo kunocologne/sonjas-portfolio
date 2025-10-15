@@ -1,30 +1,30 @@
 import type { CollectionConfig } from 'payload'
 
-import { Banner } from '@/blocks/Banner/config'
-import { Carousel } from '@/blocks/Carousel/config'
-import { ThreeItemGrid } from '@/blocks/ThreeItemGrid/config'
-import { generatePreviewPath } from '@/utilities/generatePreviewPath'
 import { adminOnly } from '@/access/adminOnly'
-import { Archive } from '@/blocks/ArchiveBlock/config'
-import { CallToAction } from '@/blocks/CallToAction/config'
-import { Content } from '@/blocks/Content/config'
-import { FormBlock } from '@/blocks/Form/config'
-import { MediaBlock } from '@/blocks/MediaBlock/config'
-import { HeroSection } from '@/blocks/HeroSection/config'
-import { AboutSection } from '@/blocks/AboutSection/config'
-import { ContactSection } from '@/blocks/ContactSection/config'
-import { FooterSection } from '@/blocks/FooterSection/config'
-import { hero } from '@/fields/hero'
-import { slugField } from 'payload'
 import { adminOrPublishedStatus } from '@/access/adminOrPublishedStatus'
+import { AboutSection } from '@/blocks/AboutSection/config'
+import { Archive } from '@/blocks/ArchiveBlock/config'
+import { Banner } from '@/blocks/Banner/config'
+import { CallToAction } from '@/blocks/CallToAction/config'
+import { Carousel } from '@/blocks/Carousel/config'
+import { ContactSection } from '@/blocks/ContactSection/config'
+import { Content } from '@/blocks/Content/config'
+import { FooterSection } from '@/blocks/FooterSection/config'
+import { FormBlock } from '@/blocks/Form/config'
+import { HeroSection } from '@/blocks/HeroSection/config'
+import { MediaBlock } from '@/blocks/MediaBlock/config'
+import { ThreeItemGrid } from '@/blocks/ThreeItemGrid/config'
+import { hero } from '@/fields/hero'
+import { generatePreviewPath } from '@/utilities/generatePreviewPath'
 import {
-  MetaDescriptionField,
-  MetaImageField,
-  MetaTitleField,
-  OverviewField,
-  PreviewField,
+    MetaDescriptionField,
+    MetaImageField,
+    MetaTitleField,
+    OverviewField,
+    PreviewField,
 } from '@payloadcms/plugin-seo/fields'
-import { revalidatePage, revalidateDelete } from './hooks/revalidatePage'
+import { slugField } from 'payload'
+import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',

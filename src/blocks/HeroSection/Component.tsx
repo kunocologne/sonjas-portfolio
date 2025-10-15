@@ -86,49 +86,11 @@ export const HeroSectionBlock: React.FC<
           </div>
         </div>
 
-        {/* Desktop Layout: Side by side */}
+        {/* Desktop Layout: Image left, content right */}
         <div className="hidden lg:grid lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left - Content */}
-          <div className="lg:col-span-7 space-y-7">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-brand-dark leading-[1.1] tracking-tight">
-              {headline}
-            </h1>
-
-            <p className="text-xl text-brand-text/70 leading-relaxed max-w-2xl">
-              {subline}
-            </p>
-
-            <div className="pt-2">
-              <Link
-                href={buttonLink || '#contact'}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-dark hover:bg-brand-text text-white rounded-full font-semibold text-lg transition-all duration-300 shadow-md hover:shadow-xl"
-              >
-                {buttonText}
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-6 pt-4 text-sm">
-              <div className="flex items-center gap-2 text-brand-text/60">
-                <svg className="w-5 h-5 text-brand-text/70 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span className="font-medium">Über 500 Klienten</span>
-              </div>
-              <div className="flex items-center gap-2 text-brand-text/60">
-                <svg className="w-5 h-5 text-brand-text/70 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
-                </svg>
-                <span className="font-medium">Empathisch & Erfahren</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right - Portrait */}
-          <div className="lg:col-span-5 flex justify-end">
+          {/* Left - Portrait */}
+          <div className="lg:col-span-5 flex justify-start">
             <div className="relative group">
               <div className="absolute -inset-4 bg-gradient-to-br from-brand-neutral/40 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               
@@ -162,6 +124,44 @@ export const HeroSectionBlock: React.FC<
                     <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right - Content */}
+          <div className="lg:col-span-7 space-y-7">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-brand-dark leading-[1.1] tracking-tight">
+              {headline}
+            </h1>
+
+            <p className="text-xl text-brand-text/70 leading-relaxed max-w-2xl">
+              {subline}
+            </p>
+
+            <div className="pt-2">
+              <Link
+                href={buttonLink || '#contact'}
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-dark hover:bg-brand-text text-white rounded-full font-semibold text-lg transition-all duration-300 shadow-md hover:shadow-xl"
+              >
+                {buttonText}
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-6 pt-4 text-sm">
+              <div className="flex items-center gap-2 text-brand-text/60">
+                <svg className="w-5 h-5 text-brand-text/70 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="font-medium">Über 500 Klienten</span>
+              </div>
+              <div className="flex items-center gap-2 text-brand-text/60">
+                <svg className="w-5 h-5 text-brand-text/70 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                </svg>
+                <span className="font-medium">Empathisch & Erfahren</span>
               </div>
             </div>
           </div>
