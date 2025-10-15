@@ -116,30 +116,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, [])
 
   useEffect(() => {
-    const fetchMe = async () => {
-      try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/me`, {
-          credentials: 'include',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          method: 'GET',
-        })
-
-        if (res.ok) {
-          const { user: meUser } = await res.json()
-          setUser(meUser || null)
-          setStatus(meUser ? 'loggedIn' : undefined)
-        } else {
-          throw new Error('An error occurred while fetching your account.')
-        }
-      } catch (e) {
-        setUser(null)
-        throw new Error('An error occurred while fetching your account.')
-      }
-    }
-
-    void fetchMe()
+    // Temporarily disabled to avoid Payload CMS dependency
+    // TODO: Re-enable when PAYLOAD_SECRET is configured in Vercel
+    setUser(null)
+    setStatus(undefined)
   }, [])
 
   const forgotPassword = useCallback<ForgotPassword>(async (args) => {
