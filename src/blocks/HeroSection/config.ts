@@ -14,7 +14,7 @@ export const HeroSection: Block = {
       type: 'text',
       required: true,
       label: 'Headline',
-      defaultValue: 'Ganzheitliche Physiotherapie & Sexualberatung',
+      defaultValue: 'Ganztherapeutische Behandlung',
     },
     {
       name: 'subline',

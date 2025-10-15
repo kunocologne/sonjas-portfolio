@@ -8,7 +8,7 @@ export const ServicesSection: Block = {
       type: 'text',
       required: true,
       label: 'Title',
-      defaultValue: 'Angebot',
+      defaultValue: 'Einzelberatung Rundum',
     },
     {
       name: 'services',
@@ -32,9 +32,9 @@ export const ServicesSection: Block = {
         },
       ],
       defaultValue: [
-        { title: 'Physiotherapie', description: '' },
-        { title: 'Sexualberatung', description: '' },
-        { title: 'Körperarbeit & Achtsamkeit', description: '' },
+        { title: 'Intimität & Sexualität', description: '' },
+        { title: 'Kräftigung & Entlastung der Beckenbodenmuskulatur', description: '' },
+        { title: 'Bewältigung von Konflikten & Lebenskrisen', description: '' },
       ],
     },
   ],

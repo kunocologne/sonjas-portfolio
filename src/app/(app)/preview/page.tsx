@@ -10,7 +10,7 @@ export default function PreviewPage() {
   return (
     <>
       <HeroSectionBlock
-        headline="Ganzheitliche Physiotherapie & Sexualberatung"
+        headline="Ganztherapeutische Behandlung"
         subline="Für mehr Bewusstsein, Heilung und Verbindung mit deinem Körper."
         buttonText="Termin vereinbaren"
         buttonLink="#contact"
@@ -23,19 +23,19 @@ export default function PreviewPage() {
       />
 
       <ServicesSectionBlock
-        title="Angebot"
+        title="Einzelberatung Rundum"
         services={[
           {
-            title: 'Physiotherapie',
-            description: 'Ganzheitliche Behandlung für Körper und Seele',
+            title: 'Intimität & Sexualität',
+            description: 'Einfühlsame Begleitung für mehr Verbundenheit und erfüllte Sexualität',
           },
           {
-            title: 'Sexualberatung',
-            description: 'Einfühlsame Begleitung für mehr Intimität',
+            title: 'Kräftigung & Entlastung der Beckenbodenmuskulatur',
+            description: 'Gezielte Übungen und Therapie für Ihren Beckenboden',
           },
           {
-            title: 'Körperarbeit & Achtsamkeit',
-            description: 'Bewusste Körperwahrnehmung',
+            title: 'Bewältigung von Konflikten & Lebenskrisen',
+            description: 'Unterstützung in schwierigen Lebensphasen',
           },
         ]}
       />

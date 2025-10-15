@@ -1,119 +1,165 @@
+'use client'
 import type { AboutSectionBlock as AboutSectionProps } from '@/payload-types'
 import { cn } from '@/utilities/cn'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 export const AboutSectionBlock: React.FC<
   AboutSectionProps & {
     id?: string | number
     className?: string
   }
-> = ({ className, title, description, image }) => {
+> = ({ className, title, description }) => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.1 })
+
   return (
-    <section id="about" className={cn('relative pt-20 md:pt-28 lg:pt-36 pb-20 md:pb-28 lg:pb-36 bg-brand-neutral', className)}>
+    <section id="about" ref={sectionRef} className={cn('relative py-16 md:py-24 lg:py-32 bg-gradient-to-b from-brand-neutral/30 via-white to-white', className)}>
       <div className="container mx-auto px-6 lg:px-16">
+        
         {/* Section header */}
-        <div className="flex flex-col items-center text-center mb-16 lg:mb-20">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-brand-dark mb-6 max-w-4xl">
+        <div className={cn(
+          'text-center mb-12 md:mb-16 transition-all duration-700',
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        )}>
+          <span className="inline-block px-4 py-2 bg-brand-snow border border-brand-neutral text-brand-text/80 rounded-full text-sm font-semibold mb-4">
+            Über mich
+          </span>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-brand-dark max-w-3xl mx-auto">
             {title}
           </h2>
-          <p className="text-lg md:text-xl text-brand-text/80 max-w-3xl">
-            {description}
-          </p>
         </div>
 
-        {/* Content grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Main card with image and content */}
-          <div className="relative bg-gradient-to-br from-brand-orange to-brand-dark rounded-3xl overflow-hidden p-8 md:p-10 lg:p-12 text-white">
-            <div className="relative z-10 space-y-6">
-              <h3 className="text-2xl md:text-3xl font-bold">
-                Professionelle Begleitung für Ihr Wohlbefinden
-              </h3>
-              <ul className="space-y-4">
-                {[
-                  'Individuelle und einfühlsame Betreuung',
-                  'Ganzheitlicher therapeutischer Ansatz',
-                  'Langjährige Erfahrung und Expertise',
-                  'Vertrauensvolle Atmosphäre'
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3">
-                    <svg className="w-6 h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+        {/* Main content grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-7xl mx-auto">
+          
+          {/* Left column - Large feature card */}
+          <div className={cn(
+            'lg:col-span-7 transition-all duration-700 delay-200',
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          )}>
+            <div className="relative group h-full bg-gradient-to-br from-brand-dark via-brand-text to-brand-dark rounded-3xl p-8 md:p-10 lg:p-12 overflow-hidden">
+              {/* Animated background pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+              </div>
+
+              <div className="relative space-y-6">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight">
+                  {description}
+                </h3>
+
+                {/* Feature list */}
+                <ul className="space-y-4 pt-4">
+                  {[
+                    'Individuelle Behandlung nach Ihren Bedürfnissen',
+                    'Vertrauensvoller und geschützter Raum',
+                    'Ganzheitlicher Ansatz für Körper & Geist',
+                    'Moderne Therapiemethoden'
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-white">
+                      <div className="w-6 h-6 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <span className="text-lg leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="pt-4">
+                  <Link
+                    href="#contact"
+                    className="inline-flex items-center gap-2 px-8 py-4 bg-white text-brand-dark rounded-full font-bold hover:bg-brand-snow transition-all duration-300 shadow-lg hover:scale-105"
+                  >
+                    Jetzt Termin buchen
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    <span className="text-lg">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="#contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-brand-orange rounded-full font-semibold hover:bg-brand-snow transition-all duration-300 mt-4"
-              >
-                Termin vereinbaren
-              </Link>
+                  </Link>
+                </div>
+              </div>
             </div>
-            
-            {/* Decorative elements */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-dark/20 rounded-full -ml-32 -mb-32 blur-3xl" />
           </div>
 
-          {/* Stats cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {/* Card 1 */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-brand-orange/10 rounded-xl flex items-center justify-center">
-                  <svg className="w-6 h-6 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          {/* Right column - Stats cards */}
+          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
+            
+            {/* Stat card 1 */}
+            <div className={cn(
+              'bg-white rounded-2xl p-6 md:p-8 border-2 border-brand-neutral hover:border-brand-text/20 hover:shadow-xl transition-all duration-500',
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            )} style={{ transitionDelay: '300ms' }}>
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-14 h-14 bg-brand-snow rounded-2xl flex items-center justify-center">
+                  <svg className="w-7 h-7 text-brand-text" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
                 </div>
               </div>
-              <h3 className="text-4xl font-bold text-brand-dark mb-2">500+</h3>
-              <p className="text-brand-text/70">Zufriedene Klienten</p>
+              <h4 className="text-4xl md:text-5xl font-bold text-brand-dark mb-2">500+</h4>
+              <p className="text-brand-text/60 font-medium">Zufriedene Klienten</p>
+              <div className="mt-4 pt-4 border-t border-brand-neutral">
+                <p className="text-sm text-brand-text/50">Seit 2014 im Einsatz für Ihr Wohlbefinden</p>
+              </div>
             </div>
 
-            {/* Card 2 */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-brand-orange/10 rounded-xl flex items-center justify-center">
-                  <svg className="w-6 h-6 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            {/* Stat card 2 */}
+            <div className={cn(
+              'bg-white rounded-2xl p-6 md:p-8 border-2 border-brand-neutral hover:border-brand-text/20 hover:shadow-xl transition-all duration-500',
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            )} style={{ transitionDelay: '400ms' }}>
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-14 h-14 bg-brand-snow rounded-2xl flex items-center justify-center">
+                  <svg className="w-7 h-7 text-brand-text" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 </div>
               </div>
-              <h3 className="text-4xl font-bold text-brand-dark mb-2">10+</h3>
-              <p className="text-brand-text/70">Jahre Erfahrung</p>
+              <h4 className="text-4xl md:text-5xl font-bold text-brand-dark mb-2">10+</h4>
+              <p className="text-brand-text/60 font-medium">Jahre Expertise</p>
+              <div className="flex gap-1 mt-4">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-4 h-4 text-brand-text/70" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
             </div>
 
-            {/* Card 3 - Portrait */}
-            <div className="sm:col-span-2 bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300">
-              <div className="flex flex-col sm:flex-row items-center gap-6">
-                <div className="relative w-24 h-24 flex-shrink-0">
+            {/* Profile card */}
+            <div className={cn(
+              'sm:col-span-2 lg:col-span-1 bg-white rounded-2xl p-6 md:p-8 border-2 border-brand-neutral hover:border-brand-text/20 hover:shadow-xl transition-all duration-500',
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            )} style={{ transitionDelay: '500ms' }}>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="relative w-16 h-16 flex-shrink-0">
                   <Image
                     src="/portrait.jpg"
                     alt="Sonja Werner"
                     fill
-                    className="rounded-full object-cover ring-4 ring-brand-orange/20"
+                    className="rounded-full object-cover ring-2 ring-brand-neutral"
+                    sizes="64px"
                   />
-                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-brand-orange rounded-full flex items-center justify-center">
-                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-brand-dark rounded-full flex items-center justify-center border-2 border-white">
+                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
                 </div>
-                <div className="flex-1 text-center sm:text-left">
-                  <h4 className="text-xl font-bold text-brand-dark mb-2">Sonja Werner</h4>
-                  <p className="text-brand-text/70 mb-3">Zertifizierte Therapeutin</p>
-                  <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
-                    {['Physiotherapie', 'Sexualberatung', 'Achtsamkeit'].map((tag) => (
-                      <span key={tag} className="px-3 py-1 bg-brand-snow text-brand-text text-sm rounded-full">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                <div>
+                  <h4 className="text-lg font-bold text-brand-dark">Sonja Werner</h4>
+                  <p className="text-sm text-brand-text/60">Zertifizierte Therapeutin</p>
                 </div>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {['Physiotherapie', 'Sexualberatung', 'Achtsamkeit'].map((tag) => (
+                  <span key={tag} className="px-3 py-1.5 bg-brand-snow text-brand-text/70 text-xs font-medium rounded-lg border border-brand-neutral">
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
           </div>

@@ -1,16 +1,12 @@
 'use client'
 import { CMSLink } from '@/components/Link'
-import { Cart } from '@/components/Cart'
-import { OpenCartButton } from '@/components/Cart/OpenCart'
+import Image from 'next/image'
 import Link from 'next/link'
-import React, { Suspense } from 'react'
 
-import { MobileMenu } from './MobileMenu'
 import type { Header } from 'src/payload-types'
 
-import { LogoIcon } from '@/components/icons/logo'
-import { usePathname } from 'next/navigation'
 import { cn } from '@/utilities/cn'
+import { usePathname } from 'next/navigation'
 
 type Props = {
   header: Header
@@ -21,44 +17,48 @@ export function HeaderClient({ header }: Props) {
   const pathname = usePathname()
 
   return (
-    <div className="relative z-20 border-b">
-      <nav className="flex items-center md:items-end justify-between container pt-2">
-        <div className="block flex-none md:hidden">
-          <Suspense fallback={null}>
-            <MobileMenu menu={menu} />
-          </Suspense>
-        </div>
-        <div className="flex w-full items-end justify-between">
-          <div className="flex w-full items-end gap-6 md:w-1/3">
-            <Link className="flex w-full items-center justify-center pt-4 pb-4 md:w-auto" href="/">
-              <LogoIcon className="w-6 h-auto" />
-            </Link>
-            {menu.length ? (
-              <ul className="hidden gap-4 text-sm md:flex md:items-center">
-                {menu.map((item) => (
-                  <li key={item.id}>
-                    <CMSLink
-                      {...item.link}
-                      size={'clear'}
-                      className={cn('relative navLink', {
-                        active:
-                          item.link.url && item.link.url !== '/'
-                            ? pathname.includes(item.link.url)
-                            : false,
-                      })}
-                      appearance="nav"
-                    />
-                  </li>
-                ))}
-              </ul>
-            ) : null}
-          </div>
+    <div className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-brand-neutral/30">
+      <nav className="container mx-auto px-6 lg:px-16 py-4">
+        <div className="flex items-center justify-between">
+          {/* Logo - Left */}
+          <Link className="flex items-center group" href="/">
+            <Image 
+              src="/logo.svg" 
+              alt="Logo" 
+              width={40} 
+              height={40}
+              className="w-10 h-10 transition-transform duration-300 group-hover:scale-110"
+            />
+          </Link>
 
-          <div className="flex justify-end md:w-1/3 gap-4">
-            <Suspense fallback={<OpenCartButton />}>
-              <Cart />
-            </Suspense>
-          </div>
+          {/* Wordmark - Center */}
+          <Link href="/" className="absolute left-1/2 -translate-x-1/2">
+            <Image 
+              src="/wordmark.svg" 
+              alt="Sonja Werner" 
+              width={160} 
+              height={40}
+              className="h-8 md:h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
+            />
+          </Link>
+
+          {/* Desktop Menu - Right */}
+          {menu.length > 0 && (
+            <ul className="hidden md:flex items-center gap-8">
+              {menu.map((item) => (
+                <li key={item.id}>
+                  <CMSLink
+                    {...item.link}
+                    size={'clear'}
+                    className={cn('relative text-brand-text hover:text-brand-dark font-medium transition-colors duration-300 text-sm', {
+                      'text-brand-dark font-semibold': item.link.url && item.link.url !== '/' ? pathname.includes(item.link.url) : false,
+                    })}
+                    appearance="nav"
+                  />
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </nav>
     </div>
