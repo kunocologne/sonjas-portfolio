@@ -1,5 +1,3 @@
-'use client'
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import type { AboutSectionBlock as AboutSectionProps } from '@/payload-types'
 import { cn } from '@/utilities/cn'
 import React from 'react'
@@ -10,17 +8,13 @@ export const AboutSectionBlock: React.FC<
     className?: string
   }
 > = ({ className, title, description }) => {
-  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.1 })
 
   return (
-    <section id="about" ref={sectionRef} className={cn('relative py-16 md:py-24 lg:py-32 bg-gradient-to-b from-brand-neutral/30 via-white to-white', className)}>
+    <section id="about" className={cn('relative py-16 md:py-24 lg:py-32 bg-gradient-to-b from-brand-neutral/30 via-white to-white', className)}>
       <div className="container mx-auto px-6 lg:px-16">
         
         {/* Title with decorative line */}
-        <div className={cn(
-          'text-center mb-12 md:mb-16 transition-all duration-700',
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        )}>
+        <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-brand-dark max-w-3xl mx-auto mb-8">
             {title}
           </h2>

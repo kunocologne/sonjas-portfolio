@@ -79,7 +79,23 @@ export const homeStaticData: () => RequiredDataFromCollectionSlug<'pages'> = () 
         },
       },
     },
-    layout: [],
+    layout: [
+      {
+        blockType: 'aboutSection',
+        title: 'Über mich',
+        description: 'Ich begleite Menschen auf ihrem Weg zu mehr Körperbewusstsein, Wohlbefinden und erfüllter Sexualität – mit Empathie, Erfahrung und einem ganzheitlichen Blick.',
+        image: null,
+      },
+      {
+        blockType: 'contactSection',
+        headline: 'Bereit für Veränderung?',
+        description: 'Ich freue mich auf deine Anfrage oder Terminvereinbarung.',
+        buttonText: 'Kontakt aufnehmen',
+        buttonLink: 'mailto:kontakt.sonja.werner@outlook.de',
+        email: 'kontakt.sonja.werner@outlook.de',
+        phone: null,
+      },
+    ],
     meta: {
       description: 'An open-source ecommerce site built with Payload and Next.js.',
       title: 'Payload Ecommerce Template',

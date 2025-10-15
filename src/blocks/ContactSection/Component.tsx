@@ -1,5 +1,3 @@
-'use client'
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import type { ContactSectionBlock as ContactSectionProps } from '@/payload-types'
 import { cn } from '@/utilities/cn'
 import Link from 'next/link'
@@ -11,10 +9,9 @@ export const ContactSectionBlock: React.FC<
     className?: string
   }
 > = ({ className, headline, description, buttonText, buttonLink }) => {
-  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.1 })
 
   return (
-    <section id="contact" ref={sectionRef} className={cn('relative py-20 md:py-28 lg:py-36 bg-gradient-to-br from-brand-orange via-brand-orange to-brand-dark overflow-hidden', className)}>
+    <section id="contact" className={cn('relative py-20 md:py-28 lg:py-36 bg-gradient-to-br from-brand-orange via-brand-orange to-brand-dark overflow-hidden', className)}>
       {/* Subtle background elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
@@ -22,10 +19,7 @@ export const ContactSectionBlock: React.FC<
       </div>
 
       <div className="relative container mx-auto px-6 lg:px-16">
-        <div className={cn(
-          'max-w-4xl mx-auto text-center text-white space-y-8 transition-all duration-700',
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        )}>
+        <div className="max-w-4xl mx-auto text-center text-white space-y-8">
           
           {/* Headline */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
