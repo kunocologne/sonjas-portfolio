@@ -1,7 +1,7 @@
 import type { FooterSectionBlock as FooterSectionProps } from '@/payload-types'
 import { cn } from '@/utilities/cn'
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 export const FooterSectionBlock: React.FC<
