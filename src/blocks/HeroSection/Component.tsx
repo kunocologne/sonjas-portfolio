@@ -19,7 +19,7 @@ export const HeroSectionBlock: React.FC<
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left - Content */}
-          <div className="lg:col-span-7 order-2 lg:order-1 space-y-5 md:space-y-7">
+          <div className="lg:col-span-7 order-1 space-y-5 md:space-y-7">
             {/* Small badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-snow border border-brand-neutral rounded-full">
               <div className="w-2 h-2 rounded-full bg-brand-text/40" />
@@ -73,7 +73,7 @@ export const HeroSectionBlock: React.FC<
           </div>
 
           {/* Right - Portrait */}
-          <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end">
+          <div className="lg:col-span-5 order-2 flex justify-center lg:justify-end">
             <div className="relative group">
               {/* Subtle glow */}
               <div className="absolute -inset-4 bg-gradient-to-br from-brand-neutral/40 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
