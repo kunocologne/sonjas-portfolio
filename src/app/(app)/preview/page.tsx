@@ -10,7 +10,7 @@ export default function PreviewPage() {
   return (
     <>
       <HeroSectionBlock
-        headline="Ganztherapeutische Behandlung"
+        headline="Ganzheitliche Physiotherapie & Sexualberatung"
         subline="Für mehr Bewusstsein, Heilung und Verbindung mit deinem Körper."
         buttonText="Termin vereinbaren"
         buttonLink="#contact"
