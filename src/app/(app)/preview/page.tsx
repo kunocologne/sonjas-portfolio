@@ -44,8 +44,8 @@ export default function PreviewPage() {
         headline="Bereit für Veränderung?"
         description="Ich freue mich auf deine Anfrage oder Terminvereinbarung."
         buttonText="Kontakt aufnehmen"
-        buttonLink="mailto:kontakt@example.com"
-        email="kontakt@example.com"
+        buttonLink="mailto:kontakt.sonja.werner@outlook.de"
+        email="kontakt.sonja.werner@outlook.de"
         phone={null}
       />
 

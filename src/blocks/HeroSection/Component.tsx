@@ -11,7 +11,7 @@ export const HeroSectionBlock: React.FC<
   }
 > = ({ className, headline, subline, buttonText, buttonLink }) => {
   return (
-    <section className={cn('relative bg-white pt-24 pb-12 md:pt-28 md:pb-16 lg:pt-32 lg:pb-20 overflow-hidden', className)}>
+    <section className={cn('relative bg-white pt-20 pb-12 md:pt-24 md:pb-16 lg:pt-28 lg:pb-20 overflow-hidden', className)}>
       {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-brand-snow/30 via-white to-white" />
 

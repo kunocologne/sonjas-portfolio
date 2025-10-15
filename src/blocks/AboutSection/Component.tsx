@@ -1,7 +1,6 @@
 'use client'
 import type { AboutSectionBlock as AboutSectionProps } from '@/payload-types'
 import { cn } from '@/utilities/cn'
-import Image from 'next/image'
 import React from 'react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
@@ -17,105 +16,134 @@ export const AboutSectionBlock: React.FC<
     <section id="about" ref={sectionRef} className={cn('relative py-16 md:py-24 lg:py-32 bg-gradient-to-b from-brand-neutral/30 via-white to-white', className)}>
       <div className="container mx-auto px-6 lg:px-16">
         
-        {/* Single Title - No redundancy */}
+        {/* Title with decorative line */}
         <div className={cn(
           'text-center mb-12 md:mb-16 transition-all duration-700',
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         )}>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-brand-dark max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-brand-dark max-w-3xl mx-auto mb-8">
             {title}
           </h2>
+          {/* Decorative line */}
+          <div className="flex items-center justify-center gap-4">
+            <div className="w-20 md:w-32 h-px bg-gradient-to-r from-transparent via-brand-orange to-brand-orange" />
+            <div className="w-2 h-2 rounded-full bg-brand-orange" />
+            <div className="w-20 md:w-32 h-px bg-gradient-to-l from-transparent via-brand-orange to-brand-orange" />
+          </div>
         </div>
 
-        {/* Main content - Single column with flowing design */}
-        <div className="max-w-6xl mx-auto space-y-8">
+        {/* Main content */}
+        <div className="max-w-6xl mx-auto space-y-10">
           
-          {/* Main description card */}
+          {/* Description card with gradient text */}
           <div className={cn(
-            'relative bg-gradient-to-br from-brand-dark via-brand-text to-brand-dark rounded-3xl p-8 md:p-12 lg:p-16 overflow-hidden transition-all duration-700 delay-200',
+            'relative bg-white rounded-3xl p-8 md:p-12 lg:p-14 border-2 border-brand-neutral shadow-lg overflow-hidden transition-all duration-700 delay-200',
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           )}>
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
-            </div>
+            {/* Decorative corner elements */}
+            <div className="absolute top-0 right-0 w-48 h-48 bg-brand-orange/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-brand-dark/5 rounded-full blur-3xl" />
 
-            <div className="relative">
-              <p className="text-xl md:text-2xl lg:text-3xl text-white leading-relaxed font-light text-center">
-                {description}
+            <div className="relative text-center">
+              <p className="text-xl md:text-2xl lg:text-3xl leading-relaxed font-light">
+                <span className="bg-gradient-to-r from-brand-dark via-brand-orange to-brand-dark bg-clip-text text-transparent">
+                  {description}
+                </span>
               </p>
             </div>
           </div>
 
-          {/* Grid of expertise areas */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* 3 Professional cards with brand colors */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {[
               {
                 title: 'Physiotherapie',
-                description: 'Ganzheitliche körperliche Behandlung',
-                icon: (
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                ),
+                description: 'Beckenbodentherapie, Schmerzbehandlung und ganzheitliche Körperarbeit',
+                gradient: 'from-brand-snow to-brand-neutral',
+                icon: '🌿',
               },
               {
                 title: 'Sexualberatung',
-                description: 'Einfühlsame Begleitung',
-                icon: (
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                ),
+                description: 'Einzelberatung und Paartherapie für erfüllte Intimität',
+                gradient: 'from-brand-neutral to-brand-snow',
+                icon: '💫',
               },
               {
                 title: 'Achtsamkeit',
-                description: 'Körper-Geist-Verbindung',
-                icon: (
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                  </svg>
-                ),
+                description: 'Körperwahrnehmung, Entspannung und innere Balance',
+                gradient: 'from-brand-snow to-brand-neutral',
+                icon: '✨',
               },
             ].map((item, i) => (
               <div
                 key={i}
                 className={cn(
-                  'group relative bg-white rounded-2xl p-6 md:p-8 border-2 border-brand-neutral hover:border-brand-text/20 transition-all duration-500 hover:shadow-xl',
+                  'group relative overflow-hidden rounded-3xl border-2 border-brand-neutral hover:border-brand-orange transition-all duration-500 hover:shadow-2xl hover:-translate-y-2',
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 )}
-                style={{ transitionDelay: `${300 + i * 100}ms` }}
+                style={{ transitionDelay: `${400 + i * 100}ms` }}
               >
-                <div className="flex flex-col items-center text-center space-y-4">
-                  <div className="w-16 h-16 bg-brand-snow rounded-2xl flex items-center justify-center text-brand-text group-hover:scale-110 transition-transform duration-500">
-                    {item.icon}
+                {/* Brand gradient background */}
+                <div className={cn('absolute inset-0 bg-gradient-to-br', item.gradient)} />
+                
+                {/* Content */}
+                <div className="relative p-8 md:p-10 space-y-6">
+                  {/* Header */}
+                  <div className="flex items-start justify-between">
+                    <div className="text-5xl md:text-6xl group-hover:scale-110 transition-transform duration-500">
+                      {item.icon}
+                    </div>
+                    <div className="text-6xl font-bold text-brand-neutral/30 group-hover:text-brand-orange/30 transition-colors duration-500">
+                      {i + 1}
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold text-brand-dark">{item.title}</h3>
-                  <p className="text-sm text-brand-text/60">{item.description}</p>
+                  
+                  {/* Title */}
+                  <h3 className="text-2xl md:text-3xl font-bold text-brand-dark">
+                    {item.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-base text-brand-text/70 leading-relaxed">
+                    {item.description}
+                  </p>
+
+                  {/* Expanding line */}
+                  <div className="w-0 group-hover:w-full h-1 bg-brand-orange rounded-full transition-all duration-500" />
                 </div>
+
+                {/* Corner accent */}
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-brand-orange/10 rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             ))}
           </div>
 
           {/* Stats bar */}
           <div className={cn(
-            'grid grid-cols-2 md:grid-cols-4 gap-6 bg-white rounded-2xl p-8 border-2 border-brand-neutral shadow-lg transition-all duration-700 delay-500',
+            'grid grid-cols-2 md:grid-cols-4 gap-6 bg-gradient-to-br from-brand-neutral to-brand-snow rounded-3xl p-8 md:p-10 border-2 border-brand-neutral shadow-lg transition-all duration-700 delay-700',
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           )}>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-brand-dark mb-1">500+</div>
-              <div className="text-sm text-brand-text/60">Klienten</div>
+            <div className="text-center space-y-2">
+              <div className="text-4xl md:text-5xl font-bold text-brand-dark">500+</div>
+              <div className="text-sm text-brand-text/60 font-medium">Klienten</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-brand-dark mb-1">10+</div>
-              <div className="text-sm text-brand-text/60">Jahre</div>
+            <div className="text-center space-y-2">
+              <div className="text-4xl md:text-5xl font-bold text-brand-dark">10+</div>
+              <div className="text-sm text-brand-text/60 font-medium">Jahre</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-brand-dark mb-1">100%</div>
-              <div className="text-sm text-brand-text/60">Vertraulich</div>
+            <div className="text-center space-y-2">
+              <div className="text-4xl md:text-5xl font-bold text-brand-dark">100%</div>
+              <div className="text-sm text-brand-text/60 font-medium">Vertraulich</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-brand-dark mb-1">5★</div>
-              <div className="text-sm text-brand-text/60">Bewertung</div>
+            <div className="text-center space-y-2">
+              <div className="flex items-center justify-center gap-0.5 text-brand-orange">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <div className="text-sm text-brand-text/60 font-medium">Bewertung</div>
             </div>
           </div>
         </div>
