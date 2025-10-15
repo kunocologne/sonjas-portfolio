@@ -1,12 +1,13 @@
-import { HeroSectionBlock } from '@/blocks/HeroSection/Component'
 import { ContactSectionBlock } from '@/blocks/ContactSection/Component'
+import { HeroSectionBlock } from '@/blocks/HeroSection/Component'
+import { AboutSectionBlock } from '@/blocks/AboutSection/Component'
 
 export default function HomePage() {
   return (
     <div>
       <div style={{ backgroundColor: 'red', color: 'white', padding: '20px', marginBottom: '20px' }}>
-        <h1 style={{ fontSize: '24px', fontWeight: 'bold' }}>TEST: AboutSection causes white page</h1>
-        <p>Testing ContactSection instead. AboutSection has an issue.</p>
+        <h1 style={{ fontSize: '24px', fontWeight: 'bold' }}>TEST: Fixed AboutSection</h1>
+        <p>Fixed isVisible reference. Testing all sections now.</p>
       </div>
       
       <HeroSectionBlock
@@ -15,6 +16,13 @@ export default function HomePage() {
         subline="Für mehr Bewusstsein, Heilung und Verbindung mit deinem Körper."
         buttonText="Termin vereinbaren"
         buttonLink="#contact"
+      />
+
+      <AboutSectionBlock
+        blockType="aboutSection"
+        title="Über mich"
+        description="Ich begleite Menschen auf ihrem Weg zu mehr Körperbewusstsein, Wohlbefinden und erfüllter Sexualität – mit Empathie, Erfahrung und einem ganzheitlichen Blick."
+        image={null}
       />
 
       <ContactSectionBlock

@@ -30,10 +30,7 @@ export const AboutSectionBlock: React.FC<
         <div className="max-w-6xl mx-auto space-y-10">
           
           {/* Description card with red gradient background */}
-          <div className={cn(
-            'relative bg-gradient-to-br from-brand-dark via-brand-text to-brand-dark rounded-3xl p-8 md:p-12 lg:p-14 overflow-hidden transition-all duration-700 delay-200',
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          )}>
+          <div className="relative bg-gradient-to-br from-brand-dark via-brand-text to-brand-dark rounded-3xl p-8 md:p-12 lg:p-14 overflow-hidden">
             <div className="absolute inset-0 opacity-10">
               <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
             </div>
