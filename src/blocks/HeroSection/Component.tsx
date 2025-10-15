@@ -16,11 +16,11 @@ export const HeroSectionBlock: React.FC<
       <div className="absolute inset-0 bg-gradient-to-b from-brand-snow/30 via-white to-white" />
 
       <div className="relative container mx-auto px-6 lg:px-16 w-full">
-        {/* Mobile Layout: Stack vertically */}
-        <div className="lg:hidden flex flex-col items-center text-center space-y-5 max-w-md mx-auto">
+        {/* Mobile & Tablet Layout: Stack vertically */}
+        <div className="lg:hidden flex flex-col items-center text-center space-y-6 max-w-lg mx-auto">
           
           {/* 1. Portrait Image - Close to nav */}
-          <div className="relative w-56 h-56 sm:w-64 sm:h-64">
+          <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80">
             <div className="absolute inset-0 bg-brand-neutral/20 rounded-full p-1">
               <div className="w-full h-full bg-white rounded-full" />
             </div>
@@ -53,12 +53,12 @@ export const HeroSectionBlock: React.FC<
           </div>
 
           {/* 2. Headline */}
-          <h1 className="text-3xl sm:text-4xl font-bold text-brand-dark leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark leading-tight">
             {headline}
           </h1>
 
           {/* 3. Subline */}
-          <p className="text-base sm:text-lg text-brand-text/70 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-brand-text/70 leading-relaxed">
             {subline}
           </p>
 
