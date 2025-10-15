@@ -1,6 +1,5 @@
 import type { HeroSectionBlock as HeroSectionProps } from '@/payload-types'
 import { cn } from '@/utilities/cn'
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
@@ -26,13 +25,10 @@ export const HeroSectionBlock: React.FC<
             </div>
             
             <div className="absolute inset-2 rounded-full overflow-hidden shadow-xl ring-4 ring-white">
-              <Image
+              <img
                 src="/portrait.jpg"
                 alt="Sonja Werner"
-                fill
-                className="object-cover"
-                priority
-                sizes="256px"
+                className="w-full h-full object-cover"
               />
             </div>
 
@@ -96,13 +92,10 @@ export const HeroSectionBlock: React.FC<
                 </div>
                 
                 <div className="absolute inset-2 rounded-full overflow-hidden shadow-xl ring-4 ring-white">
-                  <Image
+                  <img
                     src="/portrait.jpg"
                     alt="Sonja Werner"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    priority
-                    sizes="(max-width: 1024px) 320px, 380px"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
 
