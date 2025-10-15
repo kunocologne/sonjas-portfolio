@@ -1,12 +1,12 @@
-import { AboutSectionBlock } from '@/blocks/AboutSection/Component'
 import { HeroSectionBlock } from '@/blocks/HeroSection/Component'
+import { ContactSectionBlock } from '@/blocks/ContactSection/Component'
 
 export default function HomePage() {
   return (
     <div>
       <div style={{ backgroundColor: 'red', color: 'white', padding: '20px', marginBottom: '20px' }}>
-        <h1 style={{ fontSize: '24px', fontWeight: 'bold' }}>TEST: Adding AboutSection</h1>
-        <p>HeroSection works! Now testing AboutSection with the 3 cards.</p>
+        <h1 style={{ fontSize: '24px', fontWeight: 'bold' }}>TEST: AboutSection causes white page</h1>
+        <p>Testing ContactSection instead. AboutSection has an issue.</p>
       </div>
       
       <HeroSectionBlock
@@ -17,11 +17,14 @@ export default function HomePage() {
         buttonLink="#contact"
       />
 
-      <AboutSectionBlock
-        blockType="aboutSection"
-        title="Über mich"
-        description="Ich begleite Menschen auf ihrem Weg zu mehr Körperbewusstsein, Wohlbefinden und erfüllter Sexualität – mit Empathie, Erfahrung und einem ganzheitlichen Blick."
-        image={null}
+      <ContactSectionBlock
+        blockType="contactSection"
+        headline="Bereit für Veränderung?"
+        description="Ich freue mich auf deine Anfrage oder Terminvereinbarung."
+        buttonText="Kontakt aufnehmen"
+        buttonLink="mailto:kontakt.sonja.werner@outlook.de"
+        email="kontakt.sonja.werner@outlook.de"
+        phone={null}
       />
     </div>
   )
