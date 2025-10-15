@@ -1,5 +1,6 @@
-import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 
 export default function Checkout() {
   // Temporarily disabled to avoid Payload CMS dependency during build
