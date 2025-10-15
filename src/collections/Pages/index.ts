@@ -10,6 +10,11 @@ import { CallToAction } from '@/blocks/CallToAction/config'
 import { Content } from '@/blocks/Content/config'
 import { FormBlock } from '@/blocks/Form/config'
 import { MediaBlock } from '@/blocks/MediaBlock/config'
+import { HeroSection } from '@/blocks/HeroSection/config'
+import { AboutSection } from '@/blocks/AboutSection/config'
+import { ServicesSection } from '@/blocks/ServicesSection/config'
+import { ContactSection } from '@/blocks/ContactSection/config'
+import { FooterSection } from '@/blocks/FooterSection/config'
 import { hero } from '@/fields/hero'
 import { slugField } from 'payload'
 import { adminOrPublishedStatus } from '@/access/adminOrPublishedStatus'
@@ -88,6 +93,11 @@ export const Pages: CollectionConfig = {
               name: 'layout',
               type: 'blocks',
               blocks: [
+                HeroSection,
+                AboutSection,
+                ServicesSection,
+                ContactSection,
+                FooterSection,
                 CallToAction,
                 Content,
                 MediaBlock,

@@ -48,6 +48,13 @@ export default {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
+        brand: {
+          orange: '#FF7518',   // Primary – Buttons, Highlights
+          dark: '#C6451A',     // Accent – Hover, active states
+          snow: '#FFFAFA',     // Background – Surfaces, calm
+          neutral: '#EDE3DC',  // Neutral – Cards, Inputs, Sections
+          text: '#2E2A26',     // Text – Readability, Structure
+        },
         accent: {
           DEFAULT: 'hsl(var(--accent))',
           foreground: 'hsl(var(--accent-foreground))',
@@ -103,7 +110,7 @@ export default {
       }),
       fontFamily: {
         mono: ['var(--font-geist-mono)'],
-        sans: ['var(--font-geist-sans)'],
+        sans: ['var(--font-outfit)', 'system-ui', 'sans-serif'],
       },
       keyframes: {
         fadeIn: {

@@ -6,6 +6,11 @@ import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { ThreeItemGridBlock } from '@/blocks/ThreeItemGrid/Component'
+import { HeroSectionBlock } from '@/blocks/HeroSection/Component'
+import { AboutSectionBlock } from '@/blocks/AboutSection/Component'
+import { ServicesSectionBlock } from '@/blocks/ServicesSection/Component'
+import { ContactSectionBlock } from '@/blocks/ContactSection/Component'
+import { FooterSectionBlock } from '@/blocks/FooterSection/Component'
 import { toKebabCase } from '@/utilities/toKebabCase'
 import React, { Fragment } from 'react'
 
@@ -20,6 +25,11 @@ const blockComponents = {
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
   threeItemGrid: ThreeItemGridBlock,
+  heroSection: HeroSectionBlock,
+  aboutSection: AboutSectionBlock,
+  servicesSection: ServicesSectionBlock,
+  contactSection: ContactSectionBlock,
+  footerSection: FooterSectionBlock,
 }
 
 export const RenderBlocks: React.FC<{
