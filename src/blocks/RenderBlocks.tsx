@@ -49,8 +49,11 @@ export const RenderBlocks: React.FC<{
             const Block = blockComponents[blockType]
 
             if (Block) {
+              // Don't add margin for our new sections - they have their own spacing
+              const isNewSection = ['heroSection', 'aboutSection', 'servicesSection', 'contactSection', 'footerSection'].includes(blockType)
+              
               return (
-                <div className="my-16" key={index}>
+                <div className={isNewSection ? '' : 'my-16'} key={index}>
                   {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
                   {/* @ts-ignore - weird type mismatch here */}
                   <Block id={toKebabCase(blockName!)} {...block} />
