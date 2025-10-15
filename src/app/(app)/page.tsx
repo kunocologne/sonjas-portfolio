@@ -1,15 +1,11 @@
 import { AboutSectionBlock } from '@/blocks/AboutSection/Component'
 import { ContactSectionBlock } from '@/blocks/ContactSection/Component'
+import { FooterSectionBlock } from '@/blocks/FooterSection/Component'
 import { HeroSectionBlock } from '@/blocks/HeroSection/Component'
 
 export default function HomePage() {
   return (
-    <div>
-      <div style={{ backgroundColor: 'red', color: 'white', padding: '20px', marginBottom: '20px' }}>
-        <h1 style={{ fontSize: '24px', fontWeight: 'bold' }}>TEST: Fixed AboutSection</h1>
-        <p>Fixed isVisible reference. Testing all sections now.</p>
-      </div>
-      
+    <>
       <HeroSectionBlock
         blockType="heroSection"
         headline="Ganzheitliche Physiotherapie & Sexualberatung"
@@ -34,7 +30,16 @@ export default function HomePage() {
         email="kontakt.sonja.werner@outlook.de"
         phone={null}
       />
-    </div>
+
+      <FooterSectionBlock
+        blockType="footerSection"
+        copyrightText="© 2025 Sonja Werner"
+        links={[
+          { label: 'Impressum', url: '/impressum' },
+          { label: 'Datenschutz', url: '/datenschutz' },
+        ]}
+      />
+    </>
   )
 }
 
