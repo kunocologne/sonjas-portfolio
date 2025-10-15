@@ -16,8 +16,8 @@ export const HeroSectionBlock: React.FC<
       <div className="absolute inset-0 bg-gradient-to-b from-brand-snow/30 via-white to-white" />
 
       <div className="relative container mx-auto px-6 lg:px-16 w-full">
-        {/* Mobile & Tablet Layout: Stack vertically */}
-        <div className="lg:hidden flex flex-col items-center text-center space-y-6 max-w-lg mx-auto">
+        {/* Mobile Layout: Stack vertically */}
+        <div className="md:hidden flex flex-col items-center text-center space-y-6 max-w-lg mx-auto">
           
           {/* 1. Portrait Image - Close to nav */}
           <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80">
@@ -57,15 +57,11 @@ export const HeroSectionBlock: React.FC<
             {headline}
           </h1>
 
-          {/* 3. Subline */}
-          <p className="text-base sm:text-lg md:text-xl text-brand-text/70 leading-relaxed">
-            {subline}
-          </p>
 
           {/* 4. CTA Button */}
           <Link
             href={buttonLink || '#contact'}
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-dark hover:bg-brand-text text-white rounded-full font-semibold text-base transition-all duration-300 shadow-md hover:shadow-xl w-full sm:w-auto"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-orange hover:bg-brand-dark text-white rounded-full font-semibold text-base transition-all duration-300 shadow-md hover:shadow-xl w-full sm:w-auto"
           >
             {buttonText}
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -86,15 +82,15 @@ export const HeroSectionBlock: React.FC<
           </div>
         </div>
 
-        {/* Desktop Layout: Image left, content right */}
-        <div className="hidden lg:grid lg:grid-cols-12 gap-12 items-center">
+        {/* Tablet & Desktop Layout: Image left, content right */}
+        <div className="hidden md:grid md:grid-cols-12 gap-6 lg:gap-8 xl:gap-12 items-start">
           
           {/* Left - Portrait */}
-          <div className="lg:col-span-5 flex justify-start">
+          <div className="md:col-span-5 flex justify-center pt-8">
             <div className="relative group">
               <div className="absolute -inset-4 bg-gradient-to-br from-brand-neutral/40 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               
-              <div className="relative w-[380px] h-[380px]">
+              <div className="relative w-[320px] h-[320px] lg:w-[380px] lg:h-[380px]">
                 <div className="absolute inset-0 bg-brand-neutral/20 rounded-full p-1">
                   <div className="w-full h-full bg-white rounded-full" />
                 </div>
@@ -106,7 +102,7 @@ export const HeroSectionBlock: React.FC<
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                     priority
-                    sizes="380px"
+                    sizes="(max-width: 1024px) 320px, 380px"
                   />
                 </div>
 
@@ -129,19 +125,16 @@ export const HeroSectionBlock: React.FC<
           </div>
 
           {/* Right - Content */}
-          <div className="lg:col-span-7 space-y-7">
+          <div className="md:col-span-7 space-y-6 lg:space-y-7">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-brand-dark leading-[1.1] tracking-tight">
               {headline}
             </h1>
 
-            <p className="text-xl text-brand-text/70 leading-relaxed max-w-2xl">
-              {subline}
-            </p>
 
             <div className="pt-2">
               <Link
                 href={buttonLink || '#contact'}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-dark hover:bg-brand-text text-white rounded-full font-semibold text-lg transition-all duration-300 shadow-md hover:shadow-xl"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-orange hover:bg-brand-dark text-white rounded-full font-semibold text-lg transition-all duration-300 shadow-md hover:shadow-xl"
               >
                 {buttonText}
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

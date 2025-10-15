@@ -2,6 +2,7 @@
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import type { AboutSectionBlock as AboutSectionProps } from '@/payload-types'
 import { cn } from '@/utilities/cn'
+import Image from 'next/image'
 import React from 'react'
 
 export const AboutSectionBlock: React.FC<
@@ -52,96 +53,146 @@ export const AboutSectionBlock: React.FC<
           </div>
 
           {/* 3 Professional cards with brand colors */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-4 lg:gap-8">
             {[
               {
                 title: 'Physiotherapie',
                 description: 'Beckenbodentherapie, Schmerzbehandlung und ganzheitliche Körperarbeit',
+                detailedDescription: 'Ich begleite Sie mit gezielten Übungen und manuellen Techniken bei Beckenbodentherapie, chronischen Schmerzen und körperlichen Beschwerden. Mein Ansatz kombiniert traditionelle Physiotherapie mit modernen ganzheitlichen Methoden.',
                 gradient: 'from-brand-snow to-brand-neutral',
                 icon: '🌿',
+                image: '/therapy-image.jpg',
+                features: ['Beckenbodentherapie', 'Manuelle Therapie', 'Schmerzbehandlung', 'Ganzheitliche Körperarbeit']
               },
               {
                 title: 'Sexualberatung',
                 description: 'Einzelberatung und Paartherapie für erfüllte Intimität',
+                detailedDescription: 'In einem geschützten Raum unterstütze ich Sie dabei, Ihre Sexualität bewusst zu erleben und zu gestalten. Gemeinsam arbeiten wir an Kommunikation, Vertrauen und erfüllter Intimität in Ihrer Partnerschaft.',
                 gradient: 'from-brand-neutral to-brand-snow',
                 icon: '💫',
+                image: '/sexualberatung-image.jpg',
+                features: ['Einzelberatung', 'Paartherapie', 'Kommunikationstraining', 'Vertrauensaufbau']
               },
               {
                 title: 'Achtsamkeit',
                 description: 'Körperwahrnehmung, Entspannung und innere Balance',
+                detailedDescription: 'Durch achtsame Körperwahrnehmung lernen Sie, Signale Ihres Körpers besser zu verstehen und Stress abzubauen. Wir entwickeln gemeinsam individuelle Entspannungs- und Achtsamkeitstechniken.',
                 gradient: 'from-brand-snow to-brand-neutral',
                 icon: '✨',
+                image: '/achtsamkeit-image.jpg',
+                features: ['Körperwahrnehmung', 'Stressreduktion', 'Entspannungstechniken', 'Meditation & Atemübungen']
               },
             ].map((item, i) => (
               <div
                 key={i}
                 className={cn(
-                  'group relative overflow-hidden rounded-3xl border-2 border-brand-neutral hover:border-brand-orange transition-all duration-500 hover:shadow-2xl hover:-translate-y-2',
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  'group relative overflow-hidden rounded-2xl border border-brand-neutral/30 hover:border-brand-orange transition-all duration-300 hover:shadow-lg hover:-translate-y-1 min-h-[380px] bg-white/80 backdrop-blur-sm',
+                  isVisible ? 'opacity-100 translate-y-0 animate-fadeInUp' : 'opacity-0 translate-y-10'
                 )}
                 style={{ transitionDelay: `${400 + i * 100}ms` }}
               >
-                {/* Brand gradient background */}
-                <div className={cn('absolute inset-0 bg-gradient-to-br', item.gradient)} />
+                {/* Subtle background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white via-brand-snow/50 to-brand-neutral/20" />
                 
                 {/* Content */}
-                <div className="relative p-8 md:p-10 space-y-6">
-                  {/* Header */}
-                  <div className="flex items-start justify-between">
-                    <div className="text-5xl md:text-6xl group-hover:scale-110 transition-transform duration-500">
+                <div className="relative p-6 sm:p-8 lg:p-8 space-y-4 h-full flex flex-col">
+                  {/* Header with icon */}
+                  <div className="flex items-center gap-3">
+                    <div className={cn(
+                      "text-3xl sm:text-4xl",
+                      isVisible ? "animate-bounce-in" : ""
+                    )}
+                      style={{ animationDelay: `${600 + i * 150}ms` }}
+                    >
                       {item.icon}
                     </div>
-                    <div className="text-6xl font-bold text-brand-neutral/30 group-hover:text-brand-orange/30 transition-colors duration-500">
-                      {i + 1}
-                    </div>
+                    <h3 className={cn(
+                      "text-lg sm:text-xl font-bold text-brand-dark",
+                      isVisible ? "animate-slideInLeft" : ""
+                    )}
+                      style={{ animationDelay: `${700 + i * 150}ms` }}
+                    >
+                      {item.title}
+                    </h3>
                   </div>
-                  
-                  {/* Title */}
-                  <h3 className="text-2xl md:text-3xl font-bold text-brand-dark">
-                    {item.title}
-                  </h3>
+
+                  {/* Image */}
+                  <div className={cn(
+                    "relative w-full h-32 rounded-xl overflow-hidden",
+                    isVisible ? "animate-fadeInUp" : ""
+                  )}
+                    style={{ animationDelay: `${900 + i * 150}ms` }}
+                  >
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  </div>
 
                   {/* Description */}
-                  <p className="text-base text-brand-text/70 leading-relaxed">
-                    {item.description}
+                  <p className={cn(
+                    "text-sm text-brand-text/80 leading-relaxed flex-1",
+                    isVisible ? "animate-slideInRight" : ""
+                  )}
+                    style={{ animationDelay: `${1000 + i * 150}ms` }}
+                  >
+                    {item.detailedDescription}
                   </p>
 
-                  {/* Expanding line */}
-                  <div className="w-0 group-hover:w-full h-1 bg-brand-orange rounded-full transition-all duration-500" />
+                  {/* Features List */}
+                  <div className={cn(
+                    "space-y-3",
+                    isVisible ? "animate-slideInLeft" : ""
+                  )}
+                    style={{ animationDelay: `${1100 + i * 150}ms` }}
+                  >
+                    <h4 className="text-sm font-semibold text-brand-dark">Schwerpunkte:</h4>
+                    <div className="grid grid-cols-1 gap-2">
+                      {item.features.map((feature, idx) => (
+                        <div key={idx} className="text-sm text-brand-text/70 flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 bg-brand-orange rounded-full" />
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
 
-                {/* Corner accent */}
-                <div className="absolute bottom-0 right-0 w-32 h-32 bg-brand-orange/10 rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* Subtle accent */}
+                <div className="absolute bottom-0 right-0 w-16 h-16 bg-brand-orange/5 rounded-tl-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             ))}
           </div>
 
           {/* Stats bar */}
           <div className={cn(
-            'grid grid-cols-2 md:grid-cols-4 gap-6 bg-gradient-to-br from-brand-neutral to-brand-snow rounded-3xl p-8 md:p-10 border-2 border-brand-neutral shadow-lg transition-all duration-700 delay-700',
+            'grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 bg-gradient-to-br from-brand-neutral to-brand-snow rounded-3xl p-6 sm:p-8 lg:p-10 border-2 border-brand-neutral shadow-lg transition-all duration-700 delay-700',
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           )}>
-            <div className="text-center space-y-2">
-              <div className="text-4xl md:text-5xl font-bold text-brand-dark">500+</div>
-              <div className="text-sm text-brand-text/60 font-medium">Klienten</div>
+            <div className="text-center space-y-1 sm:space-y-2">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark">500+</div>
+              <div className="text-xs sm:text-sm text-brand-text/60 font-medium">Klienten</div>
             </div>
-            <div className="text-center space-y-2">
-              <div className="text-4xl md:text-5xl font-bold text-brand-dark">10+</div>
-              <div className="text-sm text-brand-text/60 font-medium">Jahre</div>
+            <div className="text-center space-y-1 sm:space-y-2">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark">10+</div>
+              <div className="text-xs sm:text-sm text-brand-text/60 font-medium">Jahre</div>
             </div>
-            <div className="text-center space-y-2">
-              <div className="text-4xl md:text-5xl font-bold text-brand-dark">100%</div>
-              <div className="text-sm text-brand-text/60 font-medium">Vertraulich</div>
+            <div className="text-center space-y-1 sm:space-y-2">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark">100%</div>
+              <div className="text-xs sm:text-sm text-brand-text/60 font-medium">Vertraulich</div>
             </div>
-            <div className="text-center space-y-2">
+            <div className="text-center space-y-1 sm:space-y-2">
               <div className="flex items-center justify-center gap-0.5 text-brand-orange">
                 {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 20 20">
+                  <svg key={i} className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 ))}
               </div>
-              <div className="text-sm text-brand-text/60 font-medium">Bewertung</div>
+              <div className="text-xs sm:text-sm text-brand-text/60 font-medium">Bewertung</div>
             </div>
           </div>
         </div>
