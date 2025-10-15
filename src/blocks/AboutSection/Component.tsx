@@ -98,30 +98,18 @@ export const AboutSectionBlock: React.FC<
                 <div className="relative p-6 sm:p-8 lg:p-8 space-y-4 h-full flex flex-col">
                   {/* Header with icon */}
                   <div className="flex items-center gap-3">
-                    <div className={cn(
-                      "text-3xl sm:text-4xl",
-                      isVisible ? "animate-bounce-in" : ""
-                    )}
-                      style={{ animationDelay: `${600 + i * 150}ms` }}
-                    >
+                    <div className="text-3xl sm:text-4xl">
                       {item.icon}
                     </div>
-                    <h3 className={cn(
-                      "text-lg sm:text-xl font-bold text-brand-dark",
-                      isVisible ? "animate-slideInLeft" : ""
-                    )}
-                      style={{ animationDelay: `${700 + i * 150}ms` }}
-                    >
+                    <h3 className="text-lg sm:text-xl font-bold text-brand-dark">
                       {item.title}
                     </h3>
                   </div>
 
                   {/* Image */}
                   <div className={cn(
-                    "relative w-full h-32 rounded-xl overflow-hidden",
-                    isVisible ? "animate-fadeInUp" : ""
+                    "relative w-full h-32 rounded-xl overflow-hidden"
                   )}
-                    style={{ animationDelay: `${900 + i * 150}ms` }}
                   >
                     <Image
                       src={item.image}
@@ -133,22 +121,12 @@ export const AboutSectionBlock: React.FC<
                   </div>
 
                   {/* Description */}
-                  <p className={cn(
-                    "text-sm text-brand-text/80 leading-relaxed flex-1",
-                    isVisible ? "animate-slideInRight" : ""
-                  )}
-                    style={{ animationDelay: `${1000 + i * 150}ms` }}
-                  >
+                  <p className="text-sm text-brand-text/80 leading-relaxed flex-1">
                     {item.detailedDescription}
                   </p>
 
                   {/* Features List */}
-                  <div className={cn(
-                    "space-y-3",
-                    isVisible ? "animate-slideInLeft" : ""
-                  )}
-                    style={{ animationDelay: `${1100 + i * 150}ms` }}
-                  >
+                  <div className="space-y-3">
                     <h4 className="text-sm font-semibold text-brand-dark">Schwerpunkte:</h4>
                     <div className="grid grid-cols-1 gap-2">
                       {item.features.map((feature, idx) => (
