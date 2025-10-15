@@ -8,7 +8,23 @@
 
 ## Local Build Test
 
-**Always test the build locally before deploying to Vercel:**
+### ⚠️ IMPORTANT: Test EXACTLY like Vercel before deploying
+
+**Use the Vercel simulation script:**
+
+```bash
+# This simulates Vercel's exact build environment
+pnpm run build:vercel
+```
+
+This script will:
+- ✅ Check Node version matches `.nvmrc` (Node 20.x)
+- ✅ Clean previous build artifacts
+- ✅ Unset Payload environment variables (simulate missing PAYLOAD_SECRET)
+- ✅ Install dependencies with frozen lockfile
+- ✅ Run production build exactly as Vercel does
+
+**Alternative: Manual test (not recommended)**
 
 ```bash
 # Install dependencies
@@ -21,7 +37,11 @@ pnpm run build
 pnpm start
 ```
 
-✅ **The build must succeed locally before pushing to Vercel!**
+⚠️ **WARNING:** Manual testing may succeed even if Vercel fails due to:
+- Different Node versions (local vs Vercel)
+- Environment variables present locally but missing on Vercel
+
+✅ **The build:vercel test must succeed before pushing to Vercel!**
 
 ## Environment Variables
 
