@@ -473,7 +473,6 @@ export interface Page {
   layout: (
     | HeroSectionBlock
     | AboutSectionBlock
-    | ServicesSectionBlock
     | ContactSectionBlock
     | FooterSectionBlock
     | CallToActionBlock
@@ -526,21 +525,6 @@ export interface AboutSectionBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'aboutSection';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ServicesSectionBlock".
- */
-export interface ServicesSectionBlock {
-  title: string;
-  services: {
-    title: string;
-    description?: string | null;
-    id?: string | null;
-  }[];
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'servicesSection';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1273,7 +1257,6 @@ export interface PagesSelect<T extends boolean = true> {
     | {
         heroSection?: T | HeroSectionBlockSelect<T>;
         aboutSection?: T | AboutSectionBlockSelect<T>;
-        servicesSection?: T | ServicesSectionBlockSelect<T>;
         contactSection?: T | ContactSectionBlockSelect<T>;
         footerSection?: T | FooterSectionBlockSelect<T>;
         cta?: T | CallToActionBlockSelect<T>;
@@ -1318,22 +1301,6 @@ export interface AboutSectionBlockSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   image?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ServicesSectionBlock_select".
- */
-export interface ServicesSectionBlockSelect<T extends boolean = true> {
-  title?: T;
-  services?:
-    | T
-    | {
-        title?: T;
-        description?: T;
-        id?: T;
-      };
   id?: T;
   blockName?: T;
 }

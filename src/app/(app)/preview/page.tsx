@@ -4,7 +4,6 @@ import { AboutSectionBlock } from '@/blocks/AboutSection/Component'
 import { ContactSectionBlock } from '@/blocks/ContactSection/Component'
 import { FooterSectionBlock } from '@/blocks/FooterSection/Component'
 import { HeroSectionBlock } from '@/blocks/HeroSection/Component'
-import { ServicesSectionBlock } from '@/blocks/ServicesSection/Component'
 
 export default function PreviewPage() {
   return (
@@ -22,23 +21,6 @@ export default function PreviewPage() {
         image={null}
       />
 
-      <ServicesSectionBlock
-        title="Einzelberatung Rundum"
-        services={[
-          {
-            title: 'Intimität & Sexualität',
-            description: 'Einfühlsame Begleitung für mehr Verbundenheit und erfüllte Sexualität',
-          },
-          {
-            title: 'Kräftigung & Entlastung der Beckenbodenmuskulatur',
-            description: 'Gezielte Übungen und Therapie für Ihren Beckenboden',
-          },
-          {
-            title: 'Bewältigung von Konflikten & Lebenskrisen',
-            description: 'Unterstützung in schwierigen Lebensphasen',
-          },
-        ]}
-      />
 
       <ContactSectionBlock
         headline="Bereit für Veränderung?"

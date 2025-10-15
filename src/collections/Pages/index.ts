@@ -12,7 +12,6 @@ import { FormBlock } from '@/blocks/Form/config'
 import { MediaBlock } from '@/blocks/MediaBlock/config'
 import { HeroSection } from '@/blocks/HeroSection/config'
 import { AboutSection } from '@/blocks/AboutSection/config'
-import { ServicesSection } from '@/blocks/ServicesSection/config'
 import { ContactSection } from '@/blocks/ContactSection/config'
 import { FooterSection } from '@/blocks/FooterSection/config'
 import { hero } from '@/fields/hero'
@@ -95,7 +94,6 @@ export const Pages: CollectionConfig = {
               blocks: [
                 HeroSection,
                 AboutSection,
-                ServicesSection,
                 ContactSection,
                 FooterSection,
                 CallToAction,

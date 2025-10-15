@@ -8,7 +8,6 @@ import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { ThreeItemGridBlock } from '@/blocks/ThreeItemGrid/Component'
 import { HeroSectionBlock } from '@/blocks/HeroSection/Component'
 import { AboutSectionBlock } from '@/blocks/AboutSection/Component'
-import { ServicesSectionBlock } from '@/blocks/ServicesSection/Component'
 import { ContactSectionBlock } from '@/blocks/ContactSection/Component'
 import { FooterSectionBlock } from '@/blocks/FooterSection/Component'
 import { toKebabCase } from '@/utilities/toKebabCase'
@@ -27,7 +26,6 @@ const blockComponents = {
   threeItemGrid: ThreeItemGridBlock,
   heroSection: HeroSectionBlock,
   aboutSection: AboutSectionBlock,
-  servicesSection: ServicesSectionBlock,
   contactSection: ContactSectionBlock,
   footerSection: FooterSectionBlock,
 }
@@ -50,7 +48,7 @@ export const RenderBlocks: React.FC<{
 
             if (Block) {
               // Don't add margin for our new sections - they have their own spacing
-              const isNewSection = ['heroSection', 'aboutSection', 'servicesSection', 'contactSection', 'footerSection'].includes(blockType)
+              const isNewSection = ['heroSection', 'aboutSection', 'contactSection', 'footerSection'].includes(blockType)
               
               return (
                 <div className={isNewSection ? '' : 'my-16'} key={index}>
