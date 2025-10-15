@@ -1,9 +1,20 @@
+import { HeroSectionBlock } from '@/blocks/HeroSection/Component'
+
 export default function HomePage() {
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: 'red', color: 'white', padding: '20px' }}>
-      <h1 style={{ fontSize: '48px', fontWeight: 'bold' }}>SIMPLE TEST</h1>
-      <p style={{ fontSize: '24px' }}>If you can see this red page, the basic rendering works.</p>
-      <p style={{ fontSize: '24px' }}>If you see white, there's a fundamental issue.</p>
+    <div>
+      <div style={{ backgroundColor: 'red', color: 'white', padding: '20px', marginBottom: '20px' }}>
+        <h1 style={{ fontSize: '24px', fontWeight: 'bold' }}>TEST: Adding HeroSection</h1>
+        <p>If you see this red box + HeroSection below, HeroSection works.</p>
+      </div>
+      
+      <HeroSectionBlock
+        blockType="heroSection"
+        headline="Ganzheitliche Physiotherapie & Sexualberatung"
+        subline="Für mehr Bewusstsein, Heilung und Verbindung mit deinem Körper."
+        buttonText="Termin vereinbaren"
+        buttonLink="#contact"
+      />
     </div>
   )
 }
