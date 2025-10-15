@@ -1,46 +1,9 @@
-import { AboutSectionBlock } from '@/blocks/AboutSection/Component'
-import { ContactSectionBlock } from '@/blocks/ContactSection/Component'
-import { FooterSectionBlock } from '@/blocks/FooterSection/Component'
-import { HeroSectionBlock } from '@/blocks/HeroSection/Component'
-
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-red-500">
-      <h1 className="text-4xl font-bold text-white p-8">TEST - Can you see this?</h1>
-      
-      <HeroSectionBlock
-        blockType="heroSection"
-        headline="Ganzheitliche Physiotherapie & Sexualberatung"
-        subline="Für mehr Bewusstsein, Heilung und Verbindung mit deinem Körper."
-        buttonText="Termin vereinbaren"
-        buttonLink="#contact"
-      />
-
-      <AboutSectionBlock
-        blockType="aboutSection"
-        title="Über mich"
-        description="Ich begleite Menschen auf ihrem Weg zu mehr Körperbewusstsein, Wohlbefinden und erfüllter Sexualität – mit Empathie, Erfahrung und einem ganzheitlichen Blick."
-        image={null}
-      />
-
-      <ContactSectionBlock
-        blockType="contactSection"
-        headline="Bereit für Veränderung?"
-        description="Ich freue mich auf deine Anfrage oder Terminvereinbarung."
-        buttonText="Kontakt aufnehmen"
-        buttonLink="mailto:kontakt.sonja.werner@outlook.de"
-        email="kontakt.sonja.werner@outlook.de"
-        phone={null}
-      />
-
-      <FooterSectionBlock
-        blockType="footerSection"
-        copyrightText="© 2025 Sonja Werner"
-        links={[
-          { label: 'Impressum', url: '/impressum' },
-          { label: 'Datenschutz', url: '/datenschutz' },
-        ]}
-      />
+    <div style={{ minHeight: '100vh', backgroundColor: 'red', color: 'white', padding: '20px' }}>
+      <h1 style={{ fontSize: '48px', fontWeight: 'bold' }}>SIMPLE TEST</h1>
+      <p style={{ fontSize: '24px' }}>If you can see this red page, the basic rendering works.</p>
+      <p style={{ fontSize: '24px' }}>If you see white, there's a fundamental issue.</p>
     </div>
   )
 }
