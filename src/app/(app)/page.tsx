@@ -3,6 +3,8 @@ import { ContactSectionBlock } from '@/blocks/ContactSection/Component'
 import { FooterSectionBlock } from '@/blocks/FooterSection/Component'
 import { HeroSectionBlock } from '@/blocks/HeroSection/Component'
 
+export const dynamic = 'force-dynamic'
+
 export default function HomePage() {
   return (
     <>
